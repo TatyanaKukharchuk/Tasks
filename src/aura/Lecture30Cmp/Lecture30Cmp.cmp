@@ -1,0 +1,20 @@
+<aura:component controller = "Lecture30Controller" implements="force:appHostable" >
+    <aura:attribute name= "fieldSet" type = "String[]"/>
+    <aura:attribute name="contacts" type = "Contact[]"/>
+    <aura:attribute name = "nameForSearch" type="String"/>
+    <aura:attribute name = "pageSize" type = "Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <lightning:input name="input" label="Search smth" value="{!v.nameForSearch}" onchange="{!c.searchByContact}" />
+    <aura:iteration var="c" items="{!v.contacts}" indexVar="index">
+        <aura:If isTrue="{!lessthan(index, v.pageSize)}">
+    <lightning:card variant="narrow" iconName="standard:contact" title="{!c.Name}" >
+        <aura:iteration var="field" items="{!v.fieldSet}">
+            <p class="slds-p-horizontal_small" >
+            <c:Lecture30CmpForFieldSet objName='{!c}' fieldName="{!field}" />
+            </p>
+        </aura:iteration>
+    </lightning:card>
+        </aura:If>
+    </aura:iteration>
+    <lightning:button  aura:id = "showMore" variant="neutral" onclick="{!c.clickShowMore}" label="Show more"/>
+</aura:component>

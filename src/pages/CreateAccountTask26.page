@@ -1,0 +1,55 @@
+<apex:page controller="AccountCreationTask26Controller" id="AccountCreationTask26Controller">
+
+    <apex:outputText value="{0,date,dd/MM/yyyy HH:mm:ss}" id="systemTime">
+        <apex:param value="{!NOW()+offset}"/>
+    </apex:outputText>
+
+    <apex:form >
+        <apex:pageBlock id="pageBlockForCreate" rendered="{!displayCreateAccount}" title="Create new {!selectedType} account">
+            <apex:actionFunction name="time" status="MyStatus" reRender="systemTime"/>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!newAccounts.Name}"/>
+                <apex:actionRegion >
+                    <apex:inputField value="{!newAccounts.Type}">
+                        <apex:actionSupport event="onchange" rerender="pageBlockForCreate" action="{!selectedTypeAccount}"/>
+                    </apex:inputField>
+                </apex:actionRegion>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="pageBlockForCreated" rendered="{!displayCreated}">
+            <apex:commandButton action="{!back}" value="Back"/>
+
+            <apex:pageBlockTable value="{!createdAccounts}" var="a">
+                <apex:facet name="header">
+                    <h1> New Account {!accountType} created {!createdAccountDate} and {!userTime} </h1>
+                </apex:facet>
+                <apex:column value="{!a.Name}"/>
+                <apex:column value="{!a.Type}"/>
+            </apex:pageBlockTable>
+
+            <apex:commandButton action="{!showHide}" rendered="{!displayButtonShow}" value="Show"/>
+            <apex:commandButton action="{!hideShow}" rendered="{!displayHideButton}" value="Hidden"/>
+
+            <apex:pageBlockSection rendered="{!displayBlock}" columns="1">
+                <pageBlockSectionItem> {!nameAtachmentString} </pageBlockSectionItem>
+                <apex:inputfile value="{!MyAttachmentFile.body}" filename="{!MyAttachmentFile.name}"/>
+                <apex:actionRegion >
+                    <apex:commandButton value="Save Attachment" action="{!saveAttachment}"/>
+                </apex:actionRegion>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </apex:form>
+
+    <script type="text/javascript">
+        window.setInterval(time, 1000);
+    </script>
+
+</apex:page>

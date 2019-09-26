@@ -1,0 +1,165 @@
+<apex:page docType="Html-5.0"  controller="ActivityController" sideBar="false" showHeader="false">
+    <script>
+    function changeStyle(compId) {
+        var x = document.getElementById(compId);
+    	x.style.display = 'none';
+       	x.nextSibling.style.display = 'inline';
+    }
+    </script>
+    <apex:form >
+        <apex:pageBlock title=" Activities list" id="activities_list">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" id="saveButton" action="{!saveEdit}"/>
+            </apex:pageBlockButtons>
+            <apex:inputText value="{!searchString }"/>
+            <apex:commandButton value="search" onClick="{!Activities}" reRender="activities_list"></apex:commandButton>
+            <apex:pageBlockTable value="{!Activities}" var="t" id="pageTable">
+                <apex:column >
+                    <apex:outputPanel >
+                        <apex:commandLink value="Delete" onclick="if(!confirm('Are you sure you want to delete this activity?'))
+                         return;" action="{!delActivity}" rerender="activities_list">
+                            <apex:param name="del" value="{!t.Id}"/>
+                        </apex:commandLink>
+                    </apex:outputPanel>
+                </apex:column>
+                <apex:column >
+
+                    <apex:outputLabel value="{!t.nameWhatId}" ondblclick="changeStyle('{!$Component.nameWhatId}');"
+                                      id="nameWhatId"/>
+                    <apex:SelectList style="display:none;width:100%"  value="{!t.whatId}" size="1">
+                        <apex:selectOptions value="{!AccountForEdit}"  />
+                    </apex:SelectList>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortByWhatId}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.WhatId.Label}"/>
+                        </apex:commandLink>
+
+                    </apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.nameOwnerId}" ondblclick="changeStyle('{!$Component.nameOwnerId}');"
+                                      id="nameOwnerId"/>
+                    <apex:SelectList style="display:none;width:100%"  value="{!t.ownerId}" size="1">
+                        <apex:selectOptions value="{!UserForEdit}"  />
+                    </apex:SelectList>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortByOwnerId}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.OwnerId.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.subject}" ondblclick="changeStyle('{!$Component.subject}');"
+                                      id="subject"/>
+                    <apex:SelectList style="display:none;width:100%"  value="{!t.subject}" size="1">
+                        <apex:selectOptions value="{!SubjectForEdit}"  />
+                    </apex:SelectList>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortBySubject}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.Subject.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.type}" ondblclick="changeStyle('{!$Component.type}');"
+                                      id="type"/>
+                    <apex:SelectList style="display:none;width:100%"  value="{!t.type}" size="1">
+                        <apex:selectOptions value="{!TypeForEdit}"  />
+                    </apex:SelectList>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortByType}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.Type.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                    <apex:column >
+                        <apex:outputLabel value="{!t.status}" ondblclick="changeStyle('{!$Component.status}');"
+                                          id="status"/>
+                        <apex:SelectList style="display:none;width:100%"  value="{!t.status}" size="1">
+                            <apex:selectOptions value="{!StatusForEdit}"  />
+                        </apex:SelectList>
+                        <apex:facet name="header">
+                            <apex:commandLink action="{! sortByStatus}" reRender="activities_list">
+                                <apex:outputText value="{!$ObjectType.Event.fields.Status__c.Label}"/ >
+                            </apex:commandLink>
+                        </apex:facet>
+                    </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.phone}" ondblclick="changeStyle('{!$Component.phone}');"
+                                      id="phone"/>
+                    <apex:input style="display:none;width:100%" type="tel" value="{!t.phone}"/>
+
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortByPhone}" reRender="activities_list">
+                            <apex:outputText value="{!$Label.Phone}" />
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                    <apex:column >
+                    <apex:outputLabel value="{!t.startDateTime}" ondblclick="changeStyle('{!$Component.startDate}');"
+                                      id="startDate"/>
+                    <apex:input style="display:none;width:100%" type="datetime-local" value="{!t.startDateTime}"/>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!sortByStartDate}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.Fields.StartDateTime.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.endDateTime}" ondblclick="changeStyle('{!$Component.endDate}');"
+                                      id="endDate"/>
+                    <apex:input style="display:none;width:100%" type="datetime-local" value="{!t.endDateTime}"/>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortByEndDate}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.EndDateTime.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputLabel value="{!t.subtype}"/>
+                    <apex:facet name="header">
+                        <apex:commandLink action="{! sortBySubtype}" reRender="activities_list">
+                            <apex:outputText value="{!$ObjectType.Event.fields.EventSubtype.Label}"/>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:facet name="footer">
+                    <apex:outputText > Page {!pageNumber} of {!totalPages}</apex:outputText>
+
+                </apex:facet>
+            </apex:pageBlockTable>
+            <apex:SelectList value="{!pageSize}" size="1">
+                <apex:selectOptions value="{!PageSizeList}"  />
+                <apex:actionSupport event="onchange" reRender="activities_list"/>
+            </apex:SelectList>
+<!--            <span style="float:left">-->
+<!--                    <apex:outputText > Page {!pageNumber} of {!totalPages}</apex:outputText>-->
+<!--                     <apex:SelectList value="{! pageSize }" size="1">-->
+<!--                        <apex:selectOptions value="{!pageSizeList }"  />-->
+<!--                        <apex:actionSupport event="onchange" reRender="thisBlock"/>-->
+<!--                    </apex:SelectList>-->
+
+<!--                </span>-->
+
+            <apex:pageBlockButtons location="bottom" >
+                <apex:outputPanel id="myButtons">
+                    <apex:commandButton action="{!Beginning}" value="<<" disabled="{!disablePrevious}"
+                                        reRender="myButtons, activities_list">
+                    </apex:commandButton>
+                    <apex:commandButton action="{!Previous}" value="<" disabled="{!disablePrevious}"
+                                        reRender="myButtons, activities_list">
+                    </apex:commandButton>
+                    <apex:commandButton action="{!Next}" value=">" disabled="{!disableNext}"
+                                        reRender="myButtons, activities_list">
+                    </apex:commandButton>
+                    <apex:commandButton action="{!End}" value=">>" disabled="{!disableNext}"
+                                        reRender="myButtons, activities_list">
+                    </apex:commandButton>
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>
