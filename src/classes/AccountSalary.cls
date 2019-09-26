@@ -1,4 +1,4 @@
-public class AccountSalary {    
+public class AccountSalary{
      public static Double getExchangeRate (String currency1) {
         List<Currency__mdt> key = [SELECT apiKey__c FROM Currency__mdt];
         ExchangeCurrencyWSDL.XigniteGlobalCurrenciesSoap exchangeRate = new ExchangeCurrencyWSDL.XigniteGlobalCurrenciesSoap();

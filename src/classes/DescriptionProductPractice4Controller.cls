@@ -1,4 +1,4 @@
-public class DescriptionProductPractice4Controller {
+public class DescriptionProductPractice4Controller{
     public List<Product_Table__c> productTable { get; set; }
     public DescriptionProductPractice4Controller() {
     }

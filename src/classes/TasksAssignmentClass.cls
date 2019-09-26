@@ -1,4 +1,4 @@
-public class TasksAssignmentClass implements AssignmentClass { 
+public class TasksAssignmentClass implements AssignmentClass{
         public static List<Task> reassignRecords2NewUsers(List<Task> taskList)
         {
            Account acc = new Account();

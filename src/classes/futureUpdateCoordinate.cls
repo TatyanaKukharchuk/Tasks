@@ -1,7 +1,7 @@
 public class futureUpdateCoordinate  
 { 
     @future(callout=true)
-    static public void newContact(set<id> l){
+    static public void newContact(set<id> l) {
     List<Contact> contacts = [SELECT id, MailingCity,MailingCountry,MailingPostalCode,
                               MailingState,MailingStreet FROM Contact WHERE id =: l];
     List<Contact> newListContact = new List<Contact>();

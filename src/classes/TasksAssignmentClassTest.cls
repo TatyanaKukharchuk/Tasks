@@ -1,5 +1,5 @@
 @isTest(SeeAllData=false)
-public class TasksAssignmentClassTest {
+public class TasksAssignmentClassTest{
      static testMethod void reassignRecords2NewUsers() {
         Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
         User saaUser = new User (

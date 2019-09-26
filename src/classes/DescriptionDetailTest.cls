@@ -59,7 +59,7 @@ private class DescriptionDetailTest {
 
         Test.startTest();
         testDescriptionDetail.searchContact();
-        testDescriptionDetail.registrationOrder( testDescriptionDetail.contacts);
+        testDescriptionDetail.registrationOrder(testDescriptionDetail.contacts);
 
 
         Test.stopTest();

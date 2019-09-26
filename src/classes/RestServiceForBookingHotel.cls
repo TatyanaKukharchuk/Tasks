@@ -1,4 +1,4 @@
-@RestResource(urlMapping = '/Hotel/*' )
+@RestResource(urlMapping = '/Hotel/*')
 
 global with sharing class RestServiceForBookingHotel {
 

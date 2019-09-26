@@ -1,5 +1,5 @@
 @IsTest
-private class DescriptionProductPractice4Test {
+private class DescriptionProductPractice4Test{
     @testSetup static void createDate(){
 
         Product_Table__c productTable1 = new Product_Table__c (

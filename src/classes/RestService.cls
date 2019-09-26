@@ -1,4 +1,4 @@
-@RestResource(urlMapping= '/lecture20/*' )
+@RestResource(urlMapping= '/lecture20/*')
 global with sharing class RestService {
     global class WrapperClass {
      public List<Id> accountsId{get;set;}

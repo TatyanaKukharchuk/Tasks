@@ -1,4 +1,4 @@
-<apex:page controller="WeatherController" showHeader="false" standardStylesheets="true" id="vp">
+<apex:page controller="WeatherController" showHeader="false" standardStylesheets="true" id="vp" >
     <apex:form>
              <apex:pageMessages />
         <div align="center" draggable="false" >

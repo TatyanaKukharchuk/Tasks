@@ -82,7 +82,7 @@ public with sharing class DescriptionDetailController {
 
         detailProductTable.Units_Available__c = detailProductTable.Units_Available__c - unitCount;
 
-        if(detailProductTable.Units_Available__c > 0) {
+        if(detailProductTable.Units_Available__c >  0) {
             try {
                 insert newOrder;
                 update detailProductTable;

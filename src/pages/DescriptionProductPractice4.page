@@ -1,4 +1,5 @@
-<apex:page id="DescriptionProductPractice4" controller="DescriptionProductPractice4Controller" showHeader="true"  lightningStylesheets="true">
+<apex:page id="DescriptionProductPractice4" controller="DescriptionProductPractice4Controller" showHeader="true"
+           lightningStylesheets="true">
     <apex:slds />
     <apex:form >
     <div class="slds-scope">

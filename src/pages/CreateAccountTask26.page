@@ -38,7 +38,7 @@
             <apex:commandButton action="{!hideShow}" rendered="{!displayHideButton}" value="Hidden"/>
 
             <apex:pageBlockSection rendered="{!displayBlock}" columns="1">
-                <pageBlockSectionItem> {!nameAtachmentString} </pageBlockSectionItem>
+                <pageBlockSectionItem> {!nameAtachmentString} </pageBlockSectionItem >
                 <apex:inputfile value="{!MyAttachmentFile.body}" filename="{!MyAttachmentFile.name}"/>
                 <apex:actionRegion >
                     <apex:commandButton value="Save Attachment" action="{!saveAttachment}"/>

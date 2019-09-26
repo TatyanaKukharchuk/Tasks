@@ -1,4 +1,4 @@
-public with sharing class AccountCreationTask26Controller {
+public with sharing class AccountCreationTask26Controller{
 
     public Account newAccounts          { get; set; }
     public List<Account> createdAccount { get; set; }

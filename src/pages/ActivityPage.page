@@ -109,7 +109,7 @@
                 <apex:column >
                     <apex:outputLabel value="{!t.endDateTime}" ondblclick="changeStyle('{!$Component.endDate}');"
                                       id="endDate"/>
-                    <apex:input style="display:none;width:100%" type="datetime-local" value="{!t.endDateTime}"/>
+                    <apex:input style="display:none;width:100%" type="datetime-local"  value="{!t.endDateTime}"/>
                     <apex:facet name="header">
                         <apex:commandLink action="{! sortByEndDate}" reRender="activities_list">
                             <apex:outputText value="{!$ObjectType.Event.fields.EndDateTime.Label}"/>

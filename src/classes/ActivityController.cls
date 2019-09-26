@@ -1,4 +1,4 @@
-public with sharing class ActivityController {
+public with sharing class ActivityController{
 
     public WrapperActivity wrapperActivity { get; set; }
     List<WrapperActivity> wrapperActivitiesList { get; set; }

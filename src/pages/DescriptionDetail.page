@@ -23,9 +23,11 @@
         </div>
     </div>
     <div class="slds-docked-form-footer">
-        <apex:commandLink action="{!goToShoppingPage}" value="To Shopping" styleClass="slds-m-top_xx-small slds-button slds-button_neutral btnSubmit" target="_blank">
+        <apex:commandLink action="{!goToShoppingPage}" value="To Shopping"
+                          styleClass="slds-m-top_xx-small slds-button slds-button_neutral btnSubmit" target="_blank">
         </apex:commandLink>
-        <apex:commandLink action="{!goToBuyPage}" value="Buy" styleClass="slds-m-top_xx-small slds-button slds-button_brand btnSubmit" target="_parent">
+        <apex:commandLink action="{!goToBuyPage}" value="Buy"
+                          styleClass="slds-m-top_xx-small slds-button slds-button_brand btnSubmit" target="_parent">
             <apex:param name="id" value="{!detailProductTable.id}"/>
         </apex:commandLink>
     </div>
