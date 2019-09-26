@@ -1,0 +1,59 @@
+<apex:page id="DescriptionProductPractice4" controller="DescriptionProductPractice4Controller" showHeader="true"  lightningStylesheets="true">
+    <apex:slds />
+    <apex:form >
+    <div class="slds-scope">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Image">IMAGE</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Name"></div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Description">DESCRIPTION</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Cost">COST</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Buy"></div>
+                </th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <apex:repeat value="{!ValueProductTable}" var="pt" rows="10">
+                <tr>
+                    <th scope="row" data-label="Image">
+                        <div class="slds-truncate" >
+                            <img src="{!pt.Image_Url__c}"/>
+                        </div>
+                    </th>
+                    <th scope="row" data-label="Name">
+                        <div class="slds-truncate">
+                            <apex:commandLink action="{!goToDetailPage}" id="theLink" target="_blank">
+                                 {!pt.Name}
+                                <apex:param name="id" value="{!pt.id}"/>
+                            </apex:commandLink>
+                        </div>
+                    </th>
+                    <th scope="row" data-label="Description">
+                        <div class="slds-truncate">{!LEFT(pt.Product_description__c, 100)}...</div>
+                    </th>
+                    <th scope="row" data-label="Cost">
+                        <div class="slds-truncate">{!pt.Unit_Price__c}$</div>
+                    </th>
+                    <th scope="row" data-label="Buy">
+                        <apex:commandLink action="{!goToBuyPage}" value="Buy" styleClass="slds-m-top_xx-small slds-button slds-button_brand btnSubmit" target="_blank">
+                            <apex:param name="id" value="{!pt.id}"/>
+                        </apex:commandLink>
+                    </th>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </div>
+    </apex:form>
+</apex:page>

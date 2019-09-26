@@ -1,0 +1,33 @@
+<apex:page id="DescriptionDetail" controller="DescriptionDetailController" showHeader="true"
+           lightningStylesheets="true">
+    <apex:form >
+    <apex:slds />
+    <div class="slds-page-header" role="banner">
+        <div class="slds-grid">
+            <div class="slds-col slds-has-flexi-truncate">
+                <h1 class="slds-text-align_center">{!detailProductTable.Name}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_3-of-6">
+            <div class="slds-p-horizontal_x-large"><img src="{!detailProductTable.Image_Url__c}"/></div>
+        </div>
+        <div class="slds-col slds-size_3-of-6">
+            <div class="slds-p-top_large">
+                <div class="slds-text-title_caps">Amount:<br/></div>
+                <p>{!detailProductTable.Unit_Price__c}</p>
+                <div class="slds-text-title_caps">Description:<br/></div>
+                <p>{!detailProductTable.Product_Description__c}</p>
+            </div>
+        </div>
+    </div>
+    <div class="slds-docked-form-footer">
+        <apex:commandLink action="{!goToShoppingPage}" value="To Shopping" styleClass="slds-m-top_xx-small slds-button slds-button_neutral btnSubmit" target="_blank">
+        </apex:commandLink>
+        <apex:commandLink action="{!goToBuyPage}" value="Buy" styleClass="slds-m-top_xx-small slds-button slds-button_brand btnSubmit" target="_parent">
+            <apex:param name="id" value="{!detailProductTable.id}"/>
+        </apex:commandLink>
+    </div>
+    </apex:form>
+</apex:page>

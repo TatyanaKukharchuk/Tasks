@@ -1,0 +1,78 @@
+<apex:page id="BuyProductPage" controller="DescriptionDetailController" showHeader="true"
+           lightningStylesheets="true">
+    <apex:form id="form">
+        <apex:slds />
+        <apex:pagemessages />
+    <div class="slds-page-header" role="banner">
+    <div class="slds-grid">
+        <div class="slds-col slds-size_3-of-6">
+            <h1 class="slds-text-align_center"> Contact Information</h1>
+        </div>
+        <div class="slds-col slds-size_3-of-6">
+            <h1 class="slds-text-align_center">Product Information</h1>
+        </div>
+    </div>
+    </div>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_3-of-6">
+                <div class="slds-p-top_x-small">
+                    <div class="slds-p-left_xx-large">
+                <div class="slds-form-element">
+                    <div class="slds-p-left_xx-large">
+                    <label class="slds-form-element__label" for="text-input-01">Email</label>
+                        <apex:inputText value="{!email}"/>
+                    </div>
+            </div>
+                <div class="slds-form-element">
+                    <div class="slds-p-left_small">
+                    <div class="slds-p-top_small">
+                    <label class="slds-form-element__label" for="text-input-01">First Name</label>
+                    <apex:inputText value="{!firstName}"/>
+                    </div>
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <div class="slds-p-top_small">
+                    <label class="slds-form-element__label" for="text-input-id-1">
+                        <abbr class="slds-required" title="required">* </abbr>Last Name</label>
+                    <apex:inputText value="{!lastName}"/>
+                    </div>
+                </div>
+                    </div>
+            </div>
+            </div>
+            <div class="slds-col slds-size_3-of-6" id="totalAccountField">
+                <div class="slds-p-top_x-small">
+                <div class="slds-p-left_small">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-output-01">Product Name</label>
+                       <apex:outputText value="{!detailProductTable.Name}"></apex:outputText>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-output-01">Cost</label>
+                        <apex:outputText value="{!detailProductTable.Unit_Price__c}$"></apex:outputText>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-01">Unit Count</label>
+                        <apex:inputText value="{!unitCount}">
+                            <apex:actionSupport event="onchange" rerender="form"
+                                                action="{!changeTotalAmount}"/>
+                        </apex:inputText>
+
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-output-01">Total Amount</label>
+                        <apex:outputText value="{!totalAmount}$"></apex:outputText>
+                    </div>
+                </div>
+        </div>
+    </div>
+        </div>
+    <div class="slds-docked-form-footer">
+        <apex:commandLink action="{!goToShoppingPage}" value="To Shopping" styleClass="slds-m-top_xx-small slds-button slds-button_neutral btnSubmit" target="_blank">
+        </apex:commandLink>
+        <apex:commandLink action="{!searchContact}" value="Buy" styleClass="slds-m-top_xx-small slds-button slds-button_brand btnSubmit">
+        </apex:commandLink>
+    </div>
+    </apex:form>
+</apex:page>
