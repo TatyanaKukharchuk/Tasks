@@ -1,0 +1,29 @@
+<aura:component controller="FinalTaskController" implements="force:appHostable"  >
+    <aura:attribute name="hotels" type="Hotel__c[]"/>
+    <aura:attribute name="dateBook" type="Date" default="" access="global"/>
+    <aura:attribute name="rooms" type="Room__c[]"/>
+    <aura:attribute name="book" type="Boolean[]"/>
+    <aura:attribute name="transformData" type="String[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+
+
+    <lightning:select label="Open hotels" name="chooseHotel" aura:id="chooseHotel"  onchange="{!c.displayRoom}">
+        <aura:iteration items="{!v.hotels}" var="hotel">
+            <option>{!hotel.Name}</option>
+        </aura:iteration>
+    </lightning:select>
+    <ui:inputDate aura:id="dateForBook" label="Choose date" value="{!v.dateBook}" displayDatePicker="true"
+                  change="{!c.dateChange}"/>
+    <br/>
+    <p class="listRoom"> Rooms:<br/>
+        <aura:iteration items="{!v.transformData}" var="room">
+            <b>•
+                <lightning:formattedText value="{!room.roomsParam.Name}" title="Rooms"></lightning:formattedText>
+            </b>
+            <lightning:button variant="neutral" disabled="{!room.bookRoom}"
+                              label="Book" title="Book">    </lightning:button>
+            <br/>
+        </aura:iteration>
+    </p>
+
+</aura:component>
