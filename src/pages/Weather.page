@@ -1,0 +1,28 @@
+<apex:page controller="WeatherController" showHeader="false" standardStylesheets="true" id="vp">
+    <apex:form >
+             <apex:pageMessages />
+        <div align="center" draggable="false" >
+        <apex:selectList value="{!selectedCity}" size="1" multiSelect="false">
+            <apex:actionSupport event="onchange" reRender="weatherForm"/>
+            <apex:selectOptions value="{!SelectedFieldCity}"/>
+        </apex:selectList>
+        <apex:commandButton value="get weather" action="{!saveResponce}" style="float:centre" ></apex:commandButton>
+          </div>
+        <apex:pageBlock title=" Weather" id="weatherForm">
+            <apex:pageBlockSection title="{!wrapperWeather[1].dateT}">
+                <apex:outputText label="Temperature:" value="{!wrapperWeather[0].temp} "/>
+                <apex:outputText label="Pressure:" value="{!wrapperWeather[0].pressure} "/>  
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!wrapperWeather[2].dateT}">
+                <apex:outputText label="Temperature:" value="{!wrapperWeather[1].temp}  "/>
+                <apex:outputText label="Pressure:" value="{!wrapperWeather[1].pressure} "/>
+              
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!wrapperWeather[3].dateT}">
+            <apex:outputText label="Temperature:" value="{!wrapperWeather[2].temp} "/>
+            <apex:outputText label="Pressure:" value="{!wrapperWeather[2].pressure} "/>    
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
