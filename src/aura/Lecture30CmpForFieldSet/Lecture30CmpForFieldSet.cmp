@@ -1,5 +1,5 @@
 <aura:component>
-    <aura:attribute name="objName" type="Object" />
+    <aura:attribute name="objName" type="Object"/>
     <aura:attribute name="fieldName" type="String" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <lightning:formattedText aura:id="fielddata" />
