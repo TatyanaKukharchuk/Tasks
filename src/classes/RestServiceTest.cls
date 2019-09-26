@@ -1,5 +1,5 @@
 @IsTest
-public class RestServiceTest{
+public class RestServiceTest {
  @IsTest	
     static void testGetRecords(){
         Account account = new Account(Name = 'Test');
