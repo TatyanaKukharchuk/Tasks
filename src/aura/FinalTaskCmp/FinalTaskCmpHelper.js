@@ -1,5 +1,5 @@
 ({
-    displayHotel : function(component, allOpenHotelsParam)  {
+    displayHotel : function(component, allOpenHotelsParam) {
 
                      var action = component.get("c.allHotels");
                             action.setCallback(this, function(result){

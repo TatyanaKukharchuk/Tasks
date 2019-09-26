@@ -1,4 +1,4 @@
-<aura:component controller="FinalTaskController" implements="force:appHostable"  >
+<aura:component controller="FinalTaskController" implements="force:appHostable" >
     <aura:attribute name="hotels" type="Hotel__c[]"/>
     <aura:attribute name="dateBook" type="Date" default="" access="global"/>
     <aura:attribute name="rooms" type="Room__c[]"/>

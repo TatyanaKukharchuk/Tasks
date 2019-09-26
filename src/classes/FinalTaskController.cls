@@ -1,4 +1,4 @@
-public with sharing class FinalTaskController    {
+public with sharing class FinalTaskController   {
     @AuraEnabled
     public static List<Hotel__c> allHotels() {
         List<Hotel__c> allHotels = [SELECT id, Name FROM Hotel__c WHERE isOpen__c = true];

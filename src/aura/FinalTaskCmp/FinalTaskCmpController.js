@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper)  {
+    myAction : function(component, event, helper) {
             var allOpenHotels = component.get("v.hotels");
             helper.displayHotel(component, allOpenHotels);
             var today = new Date();
