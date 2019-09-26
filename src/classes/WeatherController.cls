@@ -1,4 +1,4 @@
-public with sharing class WeatherController {
+public with sharing class WeatherController{
     public String city {get; set;}
     public List<JSON2Apex.List_Z> listOfData{get; set;}
     public List<WrapperWeather> wrapperWeather{get; set;}

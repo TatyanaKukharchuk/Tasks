@@ -1,4 +1,4 @@
-public class WrapperWeather {
+public class WrapperWeather{
      public String dateT{get; set;}
      public Double temp{get; set;}
      public Double pressure{get; set;}
