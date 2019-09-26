@@ -1,5 +1,5 @@
 <apex:page controller="WeatherController" showHeader="false" standardStylesheets="true" id="vp">
-    <apex:form >
+    <apex:form>
              <apex:pageMessages />
         <div align="center" draggable="false" >
         <apex:selectList value="{!selectedCity}" size="1" multiSelect="false">

@@ -1,5 +1,5 @@
 @IsTest
-private class RestServiceForBookingHotelTest {
+private class RestServiceForBookingHotelTest{
 
     @testSetup static void createDate(){
 
