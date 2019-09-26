@@ -1,5 +1,5 @@
 ({
-	 searchContactByField : function(component, searchSegmentParam){
+	 searchContactByField : function(component, searchSegmentParam) {
             var action = component.get('c.searchContactByBack');
 
             action.setParams({ searchSegment : searchSegmentParam});

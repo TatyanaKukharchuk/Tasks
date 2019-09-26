@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper){
+    myAction : function(component, event, helper) {
         var allContactRecords = component.get("v.contacts");
        	var pageSize = component.set("v.pageSize", 5);
         helper.displayContact(component, allContactRecords);

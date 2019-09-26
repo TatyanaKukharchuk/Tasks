@@ -1,4 +1,4 @@
-<aura:component controller = "Lecture30Controller" implements="force:appHostable">
+<aura:component controller = "Lecture30Controller" implements="force:appHostable" >
     <aura:attribute name= "fieldSet" type = "String[]"/>
     <aura:attribute name="contacts" type = "Contact[]"/>
     <aura:attribute name = "nameForSearch" type="String"/>
